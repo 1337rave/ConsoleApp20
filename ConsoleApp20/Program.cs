@@ -1,2 +1,27 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+public static class StringExtensions
+{
+    public static int CountConsonants(this string str)
+    {
+        int count = 0;
+        foreach (char c in str.ToLower())
+        {
+            if (char.IsLetter(c) && !"aeiou".Contains(c))
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string text = "Hello, World!";
+
+        Console.WriteLine($"Number of consonants in \"{text}\": {text.CountConsonants()}");
+    }
+}
